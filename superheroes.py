@@ -20,15 +20,29 @@ class Ability:
 class Hero:
     def _init_(self, name):
         # Initialize starting values
+        self.abilities = list()
         self.name = name
     def add_ability(self, ability):
         # Add ability to abilities list
-        abilities = []
-
         self.ability = ability
 
         abilities.append(ability)
     def attack(self):
         # Run attack() on every ability hero has
+        # Call the attack method on every ability in our ability list
         for ability in abilities:
             attack(ability)
+        # Add up and return the total number of attacks
+
+def test():
+    if __name__ == "__main__":
+        hero = Hero("Wonder Woman")
+        print(hero.attack())
+        ability = Ability("Divine Speed", 300)
+        hero.add_ability(ability)
+        print(hero.attack())
+        new_ability = Ability("Super Human Strength", 800)
+        hero.add_ability(new_ability)
+        print(hero.attack())
+
+test()
